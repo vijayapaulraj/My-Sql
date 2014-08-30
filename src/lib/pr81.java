@@ -289,8 +289,6 @@ public class pr81 implements ActionListener {
 				}
 		
 				else if(f.getSource()==bt8){  //Go button for update option
-				//if(y==value)
-					//{
 					try{
 						Class.forName("com.mysql.jdbc.Driver");
 						Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/appa","root","");
@@ -303,7 +301,7 @@ public class pr81 implements ActionListener {
 						
 					}
 				}
-				//}
+				
 	
 				else if(f.getSource()==bt6){    //Delete option click
 					pr81 rah=new pr81();
