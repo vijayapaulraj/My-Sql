@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -48,9 +49,10 @@ public class pr81 implements ActionListener {
 	JButton bt9=null;      //Go button
 	JPanel pn9=null;
 	JPanel pn10=null;
-	int y,value;
-	
-	
+	String y=null;
+	String ID2=null;
+
+		
 	JPanel mpnl=null;
 	JFrame frm=null;
 	
@@ -161,7 +163,7 @@ public class pr81 implements ActionListener {
 		pn10.add(tx3);
 		pn10.add(bt7);
 		
-		int y=Integer.parseInt(tx3.getText());
+	
 		
 		JPanel mpnl=new JPanel();
 		mpnl.add(pn10);
@@ -265,9 +267,16 @@ public class pr81 implements ActionListener {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/appa","root","");
 					java.sql.Statement r=con.createStatement();
+					ResultSet rs=r.executeQuery("SELECT ID FROM amma");
 					System.out.println("Select button is clicked");
-					r.execute("SELECT * FROM amma WHERE ID =03");
-				}
+					
+					String y=tx3.getText();
+					 String ID2= rs.getString("ID");
+					 if(y==ID2){
+					// ResultSet rs=r.executeQuery("SELECT ID FROM amma");
+					 
+						 r.execute("SELECT ID FROM amma");
+				}}
 				catch(Exception d){
 					d.printStackTrace();
 				}
