@@ -1,7 +1,9 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -300,7 +302,7 @@ public class pr79 implements ActionListener {
 		pn10b.add(bt7);
 		
 	   String d[]={"INDIA","PAKISTAN","AUSTRALIA"};
-		Scanner y=new Scanner(System.in);
+		//Scanner y=new Scanner(System.in);
 		
 			for(int i=0;i<3;i++)
 		{
@@ -381,11 +383,28 @@ public class pr79 implements ActionListener {
 		//mpnl.add(pn15);
 		//mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		
+		Toolkit tk  = Toolkit.getDefaultToolkit();
+		  Image   titleIcon = tk.getImage("E:\\FFOutput\\go.png");
+		  
 		frm=new JFrame();
-		frm.add(mpnl);
+		frm.setBackground(Color.blue);
+		//frm.add(mpnl);
 		frm.setTitle("Create your google Account");
 		frm.setSize(450,1000);
 		frm.setVisible(true);
+		frm.setIconImage(titleIcon);
+		frm.getContentPane().add(mpnl,"East");
+		//frm.setContentPane(new JLabel(new ImageIcon("E:\\FFOutput\\go.png")));
+		frm.getContentPane().setBackground(Color.blue);
+		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		/*frm.setLocationRelativeTo(null);
+		JLabel background=new JLabel(new ImageIcon("C:\\Users\\USER\\Downloads\\raj.png"));
+		frm.add(background);
+		background.setLayout(new FlowLayout());
+		background.add(mpnl);*/
+		
+		
 	}
 	
 

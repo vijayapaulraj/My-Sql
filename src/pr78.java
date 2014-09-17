@@ -1,4 +1,5 @@
 
+import java.awt.Adjustable;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -27,6 +28,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.ScrollPaneLayout;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import com.mysql.jdbc.Connection;
 
@@ -124,10 +129,13 @@ public class pr78 implements ActionListener,AdjustmentListener {
 	JScrollPane scroller=null;
 	Container ContentPane=null;
 	
+	ScrollPaneLayout sp=null;
+	
 	
 		
 	JPanel mpnl=null;
 	JFrame frm=null;
+	//JTextFrame yu=null;
 	
 	public  pr78()
 	{
@@ -337,15 +345,19 @@ public class pr78 implements ActionListener,AdjustmentListener {
 		//pn15.setLayout(new BorderLayout());
 		pn15.add(lb15,BorderLayout.CENTER);*/
 		
+		
 		lb14=new JLabel();
-		pn16=new JPanel();
-		pn16.setLayout(new BorderLayout());
-		hbr=new JScrollBar(JScrollBar.HORIZONTAL,30,20,0,200);
-		vbr=new JScrollBar(JScrollBar.VERTICAL,30,40,0,200);
+		pn16=new JPanel(new BorderLayout());
+		//pn16.setLayout(new BorderLayout());
+		hbr=new JScrollBar(SwingConstants.HORIZONTAL,50,10,0,100);
+		vbr=new JScrollBar(SwingConstants.VERTICAL,50,10,0,100);
+		vbr.setBlockIncrement(1);
+		vbr.setUnitIncrement(1);
 		
 		hbr.addAdjustmentListener(this);
 		vbr.addAdjustmentListener(this);
 	
+		pn16.add(lb14);
 		pn16.add(hbr,BorderLayout.SOUTH);
 		pn16.add(vbr,BorderLayout.EAST);
 		pn16.add(lb14,BorderLayout.CENTER);
@@ -354,9 +366,7 @@ public class pr78 implements ActionListener,AdjustmentListener {
 		scroller=new JScrollPane(pn16);
 		this.getContentPane().add(pn16);*/
 		
-		
-		
-		
+			
 		mpnl=new JPanel();
 		mpnl.add(pn1);
 		mpnl.add(pn);
@@ -398,13 +408,27 @@ public class pr78 implements ActionListener,AdjustmentListener {
 		mpnl.add(pn12);
 		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		mpnl.add(pn16);
-		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
+		//mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		
+		JPanel container=new JPanel();
+		container.add(mpnl);
+		JScrollPane pane=new JScrollPane(container);
+		pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+				
 		frm=new JFrame();
 		frm.add(mpnl);
+		
 		frm.setTitle("Create your google Account");
 		frm.setSize(450,1000);
 		frm.setVisible(true);
+		        
+		//frm.getContentPane().add(pane,BorderLayout.CENTER);
+		
+		/*frm.getContentPane().add(lb14);
+		frm.getContentPane().add(hbr,BorderLayout.SOUTH);
+		frm.getContentPane().add(vbr,BorderLayout.EAST);
+		frm.getContentPane().add(pn16,BorderLayout.CENTER);*/
+		//frm.add(pane);
 	}
 	
 
@@ -412,7 +436,7 @@ public class pr78 implements ActionListener,AdjustmentListener {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
    new pr78();
-	}
+  	}
 
 
 	@Override
@@ -461,14 +485,16 @@ public class pr78 implements ActionListener,AdjustmentListener {
 	@Override
 	public void adjustmentValueChanged(AdjustmentEvent i) {
 		// TODO Auto-generated method stub
-	//	if(i.getSource()==scroller){
 			
-		//}
-		
-		if(i.getSource()==lb14){
-			lb14.setText("New value is"+hbr.getValue()+" ");
-		}
-		//repaint();
+	/*	if(i.getSource()==vbr){
+			//vbr.getValue();
+			vbr.setBlockIncrement(1);
+			vbr.setUnitIncrement(1);
+			
+		}*/
+		//Object source=i.getSource();
+		frm.setLocationRelativeTo(null);
+		frm.repaint();
 		
 	}
 		

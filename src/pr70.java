@@ -1,15 +1,21 @@
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
+import javax.swing.JApplet;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 
-public class pr70 implements ActionListener{
+public class pr70 extends JApplet implements ActionListener{
 	JLabel lbl1=null;
 	JTextField txt1=null;
 	JPanel pnl1=null;
@@ -24,21 +30,32 @@ public class pr70 implements ActionListener{
 	JPanel pnl3=null;
 	
 	JPanel mpnl=null;
-	JFrame frm=null;
+	JScrollPane sc=null;
 	
 	public pr70()
 	{
 		lbl1=new JLabel("UserName");
 	   txt1=new JTextField();
 		txt1.setPreferredSize(new Dimension(100,20));
+		//sc=new JScrollPane(txt1);
+			//sc.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+				//JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		pnl1=new JPanel();
+		pnl1.setLayout( new FlowLayout(FlowLayout.CENTER));
+		//pnl1.add(sc);
 		pnl1.add(lbl1);
 		pnl1.add(txt1);
 		
 		lbl2=new JLabel("Password");
 		txt2=new JTextField();
 		txt2.setPreferredSize(new Dimension(100,20));
+	//	sc=new JScrollPane(txt2);
+		//sc.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		//JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		pnl2=new JPanel();
+		pnl2.setLayout( new FlowLayout(FlowLayout.CENTER));
+		//pnl2.add(sc);
 		pnl2.add(lbl2);
 		pnl2.add(txt2);
 		
@@ -50,16 +67,22 @@ public class pr70 implements ActionListener{
 		pnl3.add(btn1);
 		pnl3.add(btn2);
 		
+		
 		mpnl=new JPanel();
 		mpnl.add(pnl1);
+     	mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		mpnl.add(pnl2);
 		mpnl.add(pnl3);
+		//JScrollPane sc=new JScrollPane(mpnl,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		frm=new JFrame();
-		frm.add(mpnl);
-		frm.setTitle("Login");
-		frm.setSize(250,250);
-		frm.setVisible(true);
+		
+		
+		//frm.add(mpnl);
+		this.getContentPane().add(mpnl,"East");
+		this.setSize(250,250);
+		this.setVisible(true);
+		//frm.add(sc);
+		
 	}
 	
 		public static void main(String[] args) {
