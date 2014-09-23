@@ -5,8 +5,12 @@ import java.awt.LayoutManager;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -28,11 +32,13 @@ public class pr70 extends JApplet implements ActionListener{
 	JButton btn1=null;
 	JButton btn2=null;
 	JPanel pnl3=null;
+	JLabel lb4=null;
+	JPanel pn3=null;
 	
 	JPanel mpnl=null;
 	JScrollPane sc=null;
 	
-	public pr70()
+	public pr70() throws IOException
 	{
 		lbl1=new JLabel("UserName");
 	   txt1=new JTextField();
@@ -59,6 +65,11 @@ public class pr70 extends JApplet implements ActionListener{
 		pnl2.add(lbl2);
 		pnl2.add(txt2);
 		
+		lb4=new JLabel(new ImageIcon(ImageIO.read(new File("C:\\Users\\USER\\Downloads\\Boss.jpg"))));
+		pn3=new JPanel();
+		pn3.setLayout(new FlowLayout(FlowLayout.LEFT));
+		pn3.add(lb4);
+		
 		btn1=new JButton("Submit");
 		btn1.addActionListener(this);
 		btn2=new JButton("Cancel");
@@ -70,22 +81,27 @@ public class pr70 extends JApplet implements ActionListener{
 		
 		mpnl=new JPanel();
 		mpnl.add(pnl1);
-     	mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
+     	mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.X_AXIS));
 		mpnl.add(pnl2);
+		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.X_AXIS));
+	    mpnl.add(pn3);
+	    mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.X_AXIS));
 		mpnl.add(pnl3);
+		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.X_AXIS));
 		//JScrollPane sc=new JScrollPane(mpnl,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		
 		
 		//frm.add(mpnl);
-		this.getContentPane().add(mpnl,"East");
+		//this.getContentPane().add(mpnl,"East");
+		this.add(mpnl);
 		this.setSize(250,250);
 		this.setVisible(true);
 		//frm.add(sc);
 		
 	}
 	
-		public static void main(String[] args) {
+		public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		new pr70();
 

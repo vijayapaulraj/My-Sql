@@ -66,14 +66,9 @@ public class pr89 extends Thread implements ActionListener  {
 	JFrame frm=null;
 	ImageIcon im=null;
 	Image ii=null;
-//	MediaTracker mt=null;
 	Dimension dm=null;
-	//private Object AudioPlayer;
 	Timer ty1=null;
 	int x; 
-	
-	//static Thread u=new Thread();
-	//u.start();
 	
 	public void add() throws InterruptedException{
 		lb1=new JLabel("WELCOME TO KBC GAME");
@@ -83,10 +78,9 @@ public class pr89 extends Thread implements ActionListener  {
 		pn1.setBackground(Color.blue);
 		pn1.add(lb1);
 		
-	/*	BufferedImage image;
-				image = ImageIO.read(new File("C:\\Users\\USER\\Downloads\\KBClogo.png"));
-				BufferedImage resizedImage=resize(image,200,200);*/
-		
+		Toolkit tk=Toolkit.getDefaultToolkit();
+		Image ty=tk.getImage("C:\\Users\\USER\\Downloads\\KBClogo.png");
+			
 		frm=new JFrame();
 		frm.add(pn1);
 		frm.setBackground(Color.blue);
@@ -95,25 +89,16 @@ public class pr89 extends Thread implements ActionListener  {
 		frm.setSize(200,200);
 		frm.setVisible(true);
 		frm.setTitle("Welcome Page");
+		frm.setIconImage(ty);
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//wait();
-				
+								
 		}
-/*	public static BufferedImage resize(BufferedImage image,int width,int height){
-		BufferedImage bi=new BufferedImage(width,height,BufferedImage.TRANSLUCENT);
-		Graphics2D g=(Graphics2D) bi.createGraphics();
-		g.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING,RenderingHints.VALUE_RENDER_QUALITY));
-		g.drawImage(image,0,0,width,height,null);
-		g.dispose();
-		return bi;
-		
-	}*/
 		
 	//long start = System.currentTimeMillis();
 	public void run(){
 		 
 		try{
-			Thread.sleep(15000);
+			Thread.sleep(10000);
 		lb1=new JLabel ("Username");
 	//	lb1.setForeground(Color.white);
 		tx1=new JTextField();
@@ -150,8 +135,6 @@ public class pr89 extends Thread implements ActionListener  {
 		pn4.setBackground(Color.blue);
 		pn4.add(lb3);*/
 		
-		
-		
 		mpnl=new JPanel();
 		mpnl.add(pn1);
 		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
@@ -161,6 +144,9 @@ public class pr89 extends Thread implements ActionListener  {
 		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		//mpnl.add(pn4);
 	//	mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
+		Toolkit tk=Toolkit.getDefaultToolkit();
+		Image ty=tk.getImage("C:\\Users\\USER\\Downloads\\KBClogo.png");
+			
 		
 		
 		
@@ -170,13 +156,15 @@ public class pr89 extends Thread implements ActionListener  {
 		frm.setTitle("Login");
 		frm.setSize(300,300);
 		frm.setVisible(true);
+		frm.setIconImage(ty);
 					
 	  frm.setLayout(new GridBagLayout());
 	    //frm.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:\\Users\\USER\\Downloads\\raj.png")))));
-		frm.setContentPane(new JLabel(new ImageIcon("E:\\FFOutput\\KBC.png")));
+		frm.setContentPane(new JLabel(new ImageIcon("C:\\Users\\USER\\Downloads\\KBClogo.png")));
 		frm.setResizable(true);
+		frm.getContentPane().add(mpnl,"West");
 	   frm. setLayout(new FlowLayout());
-	    frm.add(mpnl,new GridBagConstraints());
+	 //   frm.add(mpnl,new GridBagConstraints());
 	    frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/*frm.setLayout(new BorderLayout());
 		frm.setLocationRelativeTo(null);
@@ -189,29 +177,12 @@ public class pr89 extends Thread implements ActionListener  {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-	//}
-	//public void bgm() throws UnsupportedAudioFileException, IOException{
-		/*try{
-		File sound = new File("E://FFOutput//KBC.wav");
-		AudioInputStream audio = AudioSystem.getAudioInputStream(sound);
-		Clip clip = AudioSystem.getClip();
-         clip.open(audio);
-        clip.start();
-       // clip.loop(4);
-		}
-		catch(Exception  e)
-		{
-			e.printStackTrace();
-		}*/
-	    
-	  //  Timer t = new Timer(){
-	    	
-	    //};
+	
 	}
 	
-
+	public void wel() throws InterruptedException{
+		{
 	
-	public void wel() {
 		lb1=new JLabel("Welcome to the KBC game");
 		lb1.setFont(new Font("Times New Roman",Font.BOLD,50));
 		pn1=new JPanel();
@@ -251,8 +222,9 @@ public class pr89 extends Thread implements ActionListener  {
 		mpnl.add(pn4);
 		mpnl.setLayout(new BoxLayout(mpnl,BoxLayout.PAGE_AXIS));
 		
-		
-		
+		Toolkit tk=Toolkit.getDefaultToolkit();
+		Image ty=tk.getImage("C:\\Users\\USER\\Downloads\\KBClogo.png");
+			
 		frm=new JFrame();
 		
 		frm.add(mpnl);
@@ -260,12 +232,23 @@ public class pr89 extends Thread implements ActionListener  {
 		frm.setBackground(Color.blue);
 		frm.setVisible(true);
 		frm.setSize(200,200);
+		frm.setIconImage(ty);
 		frm.setLayout(new GridBagLayout());
-	    frm.setContentPane(new JLabel(new ImageIcon("C:\\Users\\USER\\Downloads\\raj.png")));
+	    frm.setContentPane(new JLabel(new ImageIcon("C:\\Users\\USER\\Downloads\\KBClogo.png")));
 	    frm.setLayout(new FlowLayout());
 	    frm.add(mpnl,new GridBagConstraints());
 	    frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			
+		}
+	
+	    try {
+			Thread.sleep(5000);
+			frm.getContentPane().add(frm,new qu1());
+			frm.dispose();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 	
 	public static void main(String[] args) throws InterruptedException{

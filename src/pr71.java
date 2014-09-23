@@ -188,10 +188,11 @@ public class pr71 {
 		mpnl.add(pn12);
 		
 		frm=new JFrame();
-		frm.add(mpnl);
+		frm.getContentPane().add(mpnl,"East");
 		frm.setTitle("Create your google Account");
 		frm.setSize(500,500);
 		frm.setVisible(true);
+		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
 	}
 	public static void main(String[] args) {

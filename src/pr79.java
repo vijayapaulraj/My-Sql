@@ -3,10 +3,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.LayoutManager;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.SelectionKey;
 import java.sql.DriverManager;
@@ -60,6 +63,7 @@ public class pr79 implements ActionListener {
 	JComboBox bt10=null;
 	JPanel pn5=null;
 	JPanel pn5a=null;
+	JPanel pn16=null;
 	
 	JLabel lb6=null;
 	JTextField txt9=null;
@@ -119,11 +123,12 @@ public class pr79 implements ActionListener {
 	JScrollBar hbr=null;
 	JScrollBar vbr=null;
 	
-		
+	JPanel mpn=null;
+	
 	JPanel mpnl=null;
 	JFrame frm=null;
 	
-	public  pr79()
+	public  pr79() throws IOException
 	{
 		lb1=new JLabel("Name");
 		txt1=new JTextField("First");
@@ -132,20 +137,24 @@ public class pr79 implements ActionListener {
 		txt2.setPreferredSize(new Dimension(100,20));
 		pn1=new JPanel();
 		pn1.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn1.setBackground(Color.BLUE);
 		pn1.add(lb1);
 		pn=new JPanel();
 		pn.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn.setBackground(Color.BLUE);
 		pn.add(txt1);
 		pn.add(txt2);
 				
 		lb2=new JLabel("Choose your UserName");
 		pn2=new JPanel();
 		pn2.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn2.setBackground(Color.BLUE);
 		pn2.add(lb2);
 		txt3=new JTextField("\t"+"\t"+"\t"+"\t"+"@gmail.com");
 		txt3.setPreferredSize(new Dimension(100,20));
 		pn2a=new JPanel();
 		pn2a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn2a.setBackground(Color.BLUE);
 		pn2a.add(txt3);
 		
 		lb3=new JLabel("Create a Password");
@@ -153,9 +162,11 @@ public class pr79 implements ActionListener {
 		txt4.setPreferredSize(new Dimension(100,20));
 		pn3=new JPanel();
 		pn3.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn3.setBackground(Color.BLUE);
 		pn3.add(lb3);
 		pn3a=new JPanel();
 		pn3a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn3a.setBackground(Color.BLUE);
 		pn3a.add(txt4);
 		
 		lb4=new JLabel("Confirm Your Password");
@@ -163,9 +174,11 @@ public class pr79 implements ActionListener {
 		txt5.setPreferredSize(new Dimension(100,20));
 		pn4=new JPanel();
 		pn4.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn4.setBackground(Color.BLUE);
 		pn4.add(lb4);
 		pn4a=new JPanel();
 		pn4a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn4a.setBackground(Color.BLUE);
 		pn4a.add(txt5);
 		
 		lb5=new JLabel("BirthDay");
@@ -175,15 +188,19 @@ public class pr79 implements ActionListener {
 		//txt6.setPreferredSize(new Dimension(100,20));
 		//txt7.setPreferredSize(new Dimension(100,20));
 		//txt8.setPreferredSize(new Dimension(100,20));
+	//	lb14=new JLabel(new ImageIcon(ImageIO.read(new File("E:\\FFOutput\\go.png"))));
 		
 		pn5=new JPanel();
 		pn5.setLayout(new FlowLayout(FlowLayout.LEADING));
+		//pn5.add(lb14);
+		pn5.setBackground(Color.BLUE);
 		pn5.add(lb5);
 		bt8=new JComboBox();
 		bt9=new JComboBox();
 		bt10=new JComboBox();
 		pn5a=new JPanel();
 		pn5a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn5a.setBackground(Color.BLUE);
 		pn5a.add(bt8);
 		pn5a.add(bt9);
 		pn5a.add(bt10);
@@ -226,15 +243,18 @@ public class pr79 implements ActionListener {
 		//btn2=new JRadioButton("Female");
 		pn6=new JPanel();
 		pn6.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn6.setBackground(Color.BLUE);
 		pn6.add(lb6);
 		pn6a=new JPanel();
 		pn6a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn6a.setBackground(Color.BLUE);
 		pn6a.add(txt9);
 		//bt=new ButtonGroup();
 		//bt.add(btn1);
 		//bt.add(btn2);
 		pn6b=new JPanel();
 		pn6b.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn6b.setBackground(Color.BLUE);
 		pn6b.add(bt);
 	//	pn6b.add(btn1);
 		//pn6b.add(btn2);
@@ -244,9 +264,11 @@ public class pr79 implements ActionListener {
 		txt10.setPreferredSize(new Dimension(100,20));
 		pn7=new JPanel();
 		pn7.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn7.setBackground(Color.BLUE);
 		pn7.add(lb7);
 		pn7a=new JPanel();
 		pn7a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn7a.setBackground(Color.BLUE);
 		pn7a.add(txt10);
 		
 		lb8=new JLabel("Your Current Email Address");
@@ -254,9 +276,11 @@ public class pr79 implements ActionListener {
 		txt11.setPreferredSize(new Dimension(100,20));
 		pn8=new JPanel();
 		pn8.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn8.setBackground(Color.BLUE);
 		pn8.add(lb8);
 		pn8a=new JPanel();
 		pn8a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn8a.setBackground(Color.BLUE);
 		pn8a.add(txt11);
 		
 		lb9=new JLabel("Prove you're not a robot ");
@@ -264,9 +288,11 @@ public class pr79 implements ActionListener {
 		lb10=new JLabel("Skip this Verification(phone verification may be required");
 		pn9=new JPanel();
 		pn9.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn9.setBackground(Color.BLUE);
 		pn9.add(lb9);
 		pn9a=new JPanel();
 		pn9a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn9a.setBackground(Color.BLUE);
 		pn9a.add(btn3);
 		pn9a.add(lb10);
 		
@@ -275,9 +301,11 @@ public class pr79 implements ActionListener {
 		txt12.setPreferredSize(new Dimension(100,20));
 		pn13=new JPanel();
 		pn13.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn13.setBackground(Color.BLUE);
 		pn13.add(lb13);
 		pn13a=new JPanel();
 		pn13a.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn13a.setBackground(Color.BLUE);
 		pn13a.add(txt12);
 		
 		lb11=new JLabel("Location");
@@ -285,6 +313,7 @@ public class pr79 implements ActionListener {
 		//txt13.setPreferredSize(new Dimension(100,20));
 		pn10=new JPanel();
 		pn10.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn10.setBackground(Color.BLUE);
 		pn10.add(lb11);
 		//pn10a=new JPanel();
 		//pn10a.setLayout(new FlowLayout(FlowLayout.LEADING));
@@ -299,6 +328,7 @@ public class pr79 implements ActionListener {
 		bt7.addItem("United Kingdom");*/
 		pn10b=new JPanel();
 		pn10b.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn10b.setBackground(Color.BLUE);
 		pn10b.add(bt7);
 		
 	   String d[]={"INDIA","PAKISTAN","AUSTRALIA"};
@@ -313,6 +343,7 @@ public class pr79 implements ActionListener {
 		lb12=new JLabel("I agree to Google terms of service and policies");
 		pn11=new JPanel();
 		pn11.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn11.setBackground(Color.BLUE);
 		pn11.add(btn4);
 		pn11.add(lb12);
 			
@@ -322,6 +353,7 @@ public class pr79 implements ActionListener {
 		btn6.addActionListener(this);
 		pn12=new JPanel();
 		pn12.setLayout(new FlowLayout(FlowLayout.LEADING));
+		pn12.setBackground(Color.BLUE);
 		pn12.add(btn5);
 		pn12.add(btn6);
 		
@@ -338,6 +370,18 @@ public class pr79 implements ActionListener {
 	
 		add(hbar,BorderLayout.SOUTH);*/
 		
+		/*pn13=new JPanel();
+		lb13=new JLabel();
+		lb13.*/
+    	lb14=new JLabel(new ImageIcon(ImageIO.read(new File("E:\\FFOutput\\go.png"))));
+		pn16=new JPanel();
+		pn16.setLayout(new FlowLayout(FlowLayout.CENTER));
+		pn.setBackground(Color.BLUE);
+		pn16.add(lb14);
+		mpn=new JPanel();
+		mpn.setBackground(Color.BLUE);
+		mpn.add(pn16);
+		mpn.setLayout(new BoxLayout(mpn,BoxLayout.Y_AXIS));
 		
 		
 		mpnl=new JPanel();
@@ -390,12 +434,14 @@ public class pr79 implements ActionListener {
 		frm.setBackground(Color.blue);
 		//frm.add(mpnl);
 		frm.setTitle("Create your google Account");
-		frm.setSize(450,1000);
+		frm.setSize(450,400);
 		frm.setVisible(true);
 		frm.setIconImage(titleIcon);
-		frm.getContentPane().add(mpnl,"East");
+		frm.add(mpn);
+		frm.add(mpnl,"East");
+		//frm.getContentPane().add(mpnl,"East");
 		//frm.setContentPane(new JLabel(new ImageIcon("E:\\FFOutput\\go.png")));
-		frm.getContentPane().setBackground(Color.blue);
+	//	frm.getContentPane().setBackground(Color.blue);
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/*frm.setLocationRelativeTo(null);
@@ -409,7 +455,7 @@ public class pr79 implements ActionListener {
 	
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
    new pr79();
    	}

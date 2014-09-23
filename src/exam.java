@@ -42,8 +42,6 @@ public class exam extends Object implements LineListener {
 	    clip.open(ais);
 	    clip.start();
 		
-		
-		
 		tx1=new JTextField("The text is here to enter the world");
 		tx1.setPreferredSize(new Dimension(1000,20));
 		pn1=new JPanel();
